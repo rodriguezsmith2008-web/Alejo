@@ -1,0 +1,7 @@
+<div class="calculadora">
+  <app-result [numero]="cadena"></app-result>
+  <div class="botones">
+    <app-numeros (NumeroCLick)="recibirNumero($event)"></app-numeros>
+    <app-operaciones (OperacionCLick)="recibirOperador($event)"></app-operaciones>
+  </div>
+</div>
