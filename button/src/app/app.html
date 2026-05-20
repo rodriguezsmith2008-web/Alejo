@@ -1,0 +1,5 @@
+<p *ngIf="cargando">Cargando...</p>
+
+<app-nombre *ngIf="!cargando" [estado]="estado"></app-nombre>
+
+<app-button [estado]="estado" (ClickBoton)="CambiarEstado()"></app-button>
