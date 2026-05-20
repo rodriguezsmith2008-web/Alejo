@@ -1,1 +1,2 @@
-<div [innerHTML]="'<app-colores></app-colores>'"></div>
+<app-cuadro [colores]="color"></app-cuadro>
+<app-colores (colorSlect)="cambiarColor($event)"></app-colores>

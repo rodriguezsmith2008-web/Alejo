@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ColoresAngular';
+  color: string= ""
+
+   cambiarColor(colores:string){
+    this.color = colores
+   }
 }

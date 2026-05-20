@@ -1,1 +1,5 @@
-<p>colores works!</p>
+<div class="color">
+<button class="boton" *ngFor="let color of Colores" [style.color]="color.codigo" (click)="enviarColor(color.codigo)">
+  {{ color.nombre }}
+</button>
+</div>
