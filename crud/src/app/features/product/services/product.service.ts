@@ -9,21 +9,9 @@ import { Products } from '../model/Product-model';
 export class ProductService {
 
   
-  private productList: Products[] = [
-    {
-      id:1,
-      name: "jabon",
-      price: 2000,
-    
-    },
-    {
-      id:2,
-      name: "Chicle",
-      price: 500,
-    }
-  ];
+  private productList: Products[] = [];
 
-  private nextId: number = 3;
+  private nextId: number = 1;
 
   public getAll() {
     return this.productList;

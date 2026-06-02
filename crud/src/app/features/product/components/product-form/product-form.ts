@@ -21,5 +21,7 @@ export class ProductForm {
       price: this.price,
     }
     this.service.createProduct(product)
+    this.name = "";
+    this.price = 0;
   }
 }
