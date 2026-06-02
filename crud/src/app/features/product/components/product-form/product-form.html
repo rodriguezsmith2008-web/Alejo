@@ -1,0 +1,5 @@
+<label for="">name producto</label>
+<input [(ngModel)]="name" type="text" placeholder="Ingresa el nombre del producto">
+<label for="">precio del producto</label>
+<input [(ngModel)] = "price" type="number" placeholder="Ingresa el precio del producto">
+<button (click)="create()" [disabled]="!name || price<=0" >Agregar producto</button>

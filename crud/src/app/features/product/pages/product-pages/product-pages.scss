@@ -1,0 +1,30 @@
+.bienvenida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+}
+
+.bienvenida   h1 {
+    font-weight: 700;
+  }
+
+.invenatario {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 54px);
+  width: 100%;
+}
+.invenatario .list {
+    width: 50%;
+    overflow-y: auto;
+  }
+
+.invenatario .form {
+    width: 50%;
+    overflow-y: auto;
+    border-right: 2px solid #e2e8f0;
+  }
+

@@ -1,0 +1,17 @@
+<div class="product-card">
+  <div class="product-id">
+    #{{ product.id }}
+  </div>
+
+  <h2 class="product-name">
+    {{ product.name }}
+  </h2>
+
+  <div class="product-price">
+    $ {{ product.price | number }}
+  </div>
+
+  <button class="btn-details" (click)="sendId()">
+    Delete
+  </button>
+</div>
