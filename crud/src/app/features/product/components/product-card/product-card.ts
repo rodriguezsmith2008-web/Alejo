@@ -10,12 +10,18 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductCard {
 
+  @Output() enviarUpdate =  new EventEmitter<Products>();
   @Input() product!: Products;
   @Output() enviar = new EventEmitter<number>();
 
 
+
   sendId(){
     this.enviar.emit(this.product.id);
+  }
+
+  update(){
+    this.enviarUpdate.emit(this.product)
   }
 
 }
