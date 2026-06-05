@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './product-pages.scss',
 })
 export class ProductPages {
+  productoEditar: any = null;
 
+  recibirProducto(product: any) {
+    this.productoEditar = product;
+  }
 }

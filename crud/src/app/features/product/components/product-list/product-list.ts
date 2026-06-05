@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Products } from '../../model/Product-model';
 
@@ -22,6 +22,12 @@ ngOnInit(): void {
 sendId(id:number){
   const nuevaLista = this.product.deleteProduct(id);
   this.productos = this.product.getAll();
+}
+
+@Output() productoSeleccionado = new EventEmitter<Products>();
+
+onSeleccionar(product: Products) {
+  this.productoSeleccionado.emit(product);
 }
 
 }
