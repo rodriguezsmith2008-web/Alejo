@@ -2,12 +2,7 @@
     <h2>productos</h2>
 </div>
 <div *ngIf="productos.length > 0; else listaVacia">
-  <app-product-card 
-    *ngFor="let product of productos" 
-    [product]="product" 
-    (enviar)="sendId($event)"
-    (enviarUpdate)="onSeleccionar($event)">
-  </app-product-card>
+    <app-product-card *ngFor="let product of productos" [product]="product" (enviar)="sendId($event)"></app-product-card>
 </div>
 
 <ng-template #listaVacia>

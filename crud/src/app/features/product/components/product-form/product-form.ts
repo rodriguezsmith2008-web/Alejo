@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Products } from '../../model/Product-model';
 
@@ -23,11 +23,5 @@ export class ProductForm {
     this.service.createProduct(product)
     this.name = "";
     this.price = 0;
-  }
-
-  @Output() productoSeleccionado = new EventEmitter<Products>();
-
-  onSeleccionar(product: Products) {
-    this.productoSeleccionado.emit(product);
   }
 }
