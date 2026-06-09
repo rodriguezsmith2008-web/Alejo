@@ -1,0 +1,35 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-id {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.card-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card-email {
+  font-size: 0.82rem;
+  color: #3f51b5;
+}
+
+.card-body {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.card-post {
+  font-size: 0.78rem;
+  color: #999;
+}
