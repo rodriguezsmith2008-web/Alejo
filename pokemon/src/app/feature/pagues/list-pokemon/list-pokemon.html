@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Pokédex</h1>
+
+  <p *ngIf="cargando">Cargando pokemones...</p>
+
+  <p class="error" *ngIf="error && !cargando">
+    Ocurrió un error al traer los pokemon. Intenta de nuevo.
+  </p>
+
+  <p *ngIf="!cargando && !error && pokemons.length === 0">
+    No hay pokemon para mostrar.
+  </p>
+
+  <div class="grid" *ngIf="!cargando && !error">
+    <app-pokemon-card *ngFor="let p of pokemons" [pokemon]="p"></app-pokemon-card>
+  </div>
+
+  <div class="paginacion" *ngIf="!cargando">
+    <button (click)="paginaAnterior()" [disabled]="paginaActual === 1">
+      Anterior
+    </button>
+    <span>Página {{ paginaActual }}</span>
+    <button (click)="paginaSiguiente()">Siguiente</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f0f0f0;
+  background-image: radial-gradient(circle at 20% 20%, #ffcdd2 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, #bbdefb 0%, transparent 50%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}

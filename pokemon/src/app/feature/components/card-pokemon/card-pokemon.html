@@ -1,0 +1,17 @@
+<div class="card">
+  <img [src]="pokemon.image" [alt]="pokemon.name" />
+  <h3>{{ pokemon.name }}</h3>
+
+  <div class="types">
+    <span class="badge" *ngFor="let type of pokemon.types">{{ type }}</span>
+  </div>
+
+  <ul class="info">
+    <li><strong>Peso:</strong> {{ pokemon.weight }}</li>
+    <li><strong>Altura:</strong> {{ pokemon.height }}</li>
+    <li><strong>Experiencia base:</strong> {{ pokemon.baseExperience }}</li>
+    <li><strong>HP:</strong> {{ pokemon.stats.hp }}</li>
+    <li><strong>Ataque:</strong> {{ pokemon.stats.attack }}</li>
+    <li><strong>Velocidad:</strong> {{ pokemon.stats.speed }}</li>
+  </ul>
+</div>
