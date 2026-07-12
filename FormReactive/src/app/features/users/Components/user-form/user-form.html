@@ -1,1 +1,134 @@
-<p>user-form works!</p>
+<form [formGroup]="formUser" (ngSubmit)="onClick()">
+
+    <h1>Registro</h1>
+
+    <div class="group-form">
+
+        <label for="Nombre">Nombre</label>
+        <input type="text" id="Nombre" formControlName="Nombre">
+
+        <div *ngIf="hasError('Nombre','required')">
+            El nombre es obligatorio.
+        </div>
+
+        <div *ngIf="hasError('Nombre','minlength')">
+            El nombre debe tener mínimo 3 caracteres.
+        </div>
+
+        <div *ngIf="hasError('Nombre','maxlength')">
+            El nombre no puede superar los 50 caracteres.
+        </div>
+
+        <div *ngIf="hasError('Nombre','pattern')">
+            Solo se permiten letras.
+        </div>
+
+
+        <label for="Correo">Correo</label>
+        <input type="email" id="Correo" formControlName="Correo">
+
+        <div *ngIf="hasError('Correo','required')">
+            El correo es obligatorio.
+        </div>
+
+        <div *ngIf="hasError('Correo','email')">
+            El correo no es válido.
+        </div>
+
+
+        <label for="Usuario">Usuario</label>
+        <input type="text" id="Usuario" formControlName="Usuario">
+
+        <div *ngIf="hasError('Usuario','required')">
+            El usuario es obligatorio.
+        </div>
+
+        <div *ngIf="hasError('Usuario','minlength')">
+            Debe tener mínimo 4 caracteres.
+        </div>
+
+        <div *ngIf="hasError('Usuario','pattern')">
+            Solo se permiten letras, números y guion bajo.
+        </div>
+
+
+        <label for="Edad">Edad</label>
+        <input type="number" id="Edad" formControlName="Edad">
+
+        <div *ngIf="hasError('Edad','required')">
+            La edad es obligatoria.
+        </div>
+
+        <div *ngIf="hasError('Edad','min')">
+            Debe ser mayor o igual a 15 años.
+        </div>
+
+        <div *ngIf="hasError('Edad','max')">
+            La edad máxima es 90 años.
+        </div>
+
+
+        <label for="Contraseña">Contraseña</label>
+        <input type="password" id="Contraseña" formControlName="Contraseña">
+
+        <div *ngIf="hasError('Contraseña','required')">
+            La contraseña es obligatoria.
+        </div>
+
+        <div *ngIf="hasError('Contraseña','minlength')">
+            Debe tener mínimo 8 caracteres.
+        </div>
+
+        <div *ngIf="hasError('Contraseña','pattern')">
+            Debe contener mayúscula, minúscula y número.
+        </div>
+
+
+        <label for="ConfirmarContraseña">Confirmar contraseña</label>
+        <input type="password" id="ConfirmarContraseña" formControlName="ConfirmarContraseña">
+
+        <div *ngIf="hasError('ConfirmarContraseña','required')">
+            Debe confirmar la contraseña.
+        </div>
+
+        <div *ngIf="formUser.hasError('noCoincide') && formUser.get('ConfirmarContraseña')?.touched">
+            Las contraseñas no coinciden.
+        </div>
+
+
+        <input type="checkbox" id="terminos" formControlName="TerminosCondiciones">
+
+        <label for="terminos">
+            Acepto los términos y condiciones
+        </label>
+
+        <div *ngIf="hasError('TerminosCondiciones','required')">
+            Debe aceptar los términos y condiciones.
+        </div>
+
+
+        <button type="submit" [disabled]="formUser.invalid">
+            Enviar información
+        </button>
+
+        <div class="card" *ngIf="datosUsuario">
+
+            <button type="button" class="cerrar" (click)="cerrarResultado()">X</button>
+
+            <h2>Usuario registrado</h2>
+
+            <hr>
+
+            <p><b>Nombre:</b> {{datosUsuario.Nombre}}</p>
+
+            <p><b>Correo:</b> {{datosUsuario.Correo}}</p>
+
+            <p><b>Usuario:</b> {{datosUsuario.Usuario}}</p>
+
+            <p><b>Edad:</b> {{datosUsuario.Edad}}</p>
+
+    </div>
+
+    </div>
+
+</form>

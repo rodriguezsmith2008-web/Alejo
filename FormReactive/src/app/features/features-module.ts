@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserForm } from './users/Components/user-form/user-form';
+import { UsersModule } from './users/users-module';
 
 
 
 @NgModule({
-  declarations: [
-    UserForm
-  ],
   imports: [
-    CommonModule
+    CommonModule,
+    UsersModule
   ]
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

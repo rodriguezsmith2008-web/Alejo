@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Validacion } from '../validators/validacion';
 
 @Component({
   selector: 'app-user-form',
@@ -9,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UserForm {
   formUser!: FormGroup;
+  datosUsuario:any;
 
   constructor(private fb: FormBuilder) {
     this.formUser = this.fb.group({
@@ -18,7 +20,7 @@ export class UserForm {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(50),
-          Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/) 
+          Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$/)
         ]
       ],
       Correo: [
@@ -33,7 +35,7 @@ export class UserForm {
         [
           Validators.required,
           Validators.minLength(4),
-          Validators.pattern(/^\S*$/)
+          Validators.pattern(/^[a-zA-Z0-9_]+$/)
         ]
       ],
       Contraseña: [
@@ -54,8 +56,8 @@ export class UserForm {
         { value: null, disabled: false },
         [
           Validators.required,
-          Validators.min(18),
-          Validators.max(100),
+          Validators.min(15),
+          Validators.max(90),
           Validators.pattern(/^[0-9]*$/)
         ]
       ],
@@ -65,6 +67,33 @@ export class UserForm {
           Validators.requiredTrue
         ]
       ]
-    });
+    }, {
+      validators: Validacion.iguales(
+        'Contraseña',
+        'ConfirmarContraseña'
+      )
+    })
+  };
+
+  cerrarResultado() {
+    this.datosUsuario = null;
+  }
+
+  onClick() {
+    if (this.formUser.valid) {
+      this.datosUsuario = this.formUser.value;
+      this.formUser.reset();
+    } else {
+      console.log(this.formUser.errors)
+    }
+  }
+
+  hasError(campo: string, codeError: string) {
+
+    const campoform = this.formUser.get(campo);
+    const error = campoform?.hasError(codeError);
+    const dirty = campoform?.dirty;
+    const touched = campoform?.touched;
+    return error && dirty && touched;
   }
 }
